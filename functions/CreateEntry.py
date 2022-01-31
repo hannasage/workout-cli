@@ -1,8 +1,6 @@
 import pandas as pd
 from classes.Macros import Macros
 
-file_path = 'C:\Projects\workout-cli\data\macros-log.csv'
-
 def create_entry(file_path, clazz):
     # Read in and display current log tail and dtypes
     log = pd.read_csv(file_path, index_col=0)
@@ -13,7 +11,7 @@ def create_entry(file_path, clazz):
     new_entry = clazz.create(clazz)
 
     # Convert workout into dataframe
-    entry_as_df = pd.DataFrame(Macros.to_dict(new_entry))
+    entry_as_df = pd.DataFrame(clazz.to_dict(new_entry))
     print(entry_as_df)
 
     # Add new entry to workout_log
