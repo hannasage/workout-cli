@@ -1,7 +1,7 @@
 import click
 from apps.Workout.WorkoutApp import *
-from classes.Macros import Macros
-from classes.Workout import Workout
+from apps.Macros.classes.Macros import Macros
+from apps.Workout.classes.Workout import Workout
 
 macro_log = 'C:\Projects\workout-cli\data\macros-log.csv'
 workout_log = 'C:\Projects\workout-cli\data\workout-log.csv'

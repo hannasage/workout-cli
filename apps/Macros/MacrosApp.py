@@ -1,4 +1,4 @@
-from classes.Macros import Macros
+from apps.Macros.classes.Macros import Macros
 from functions.CreateEntry import create_entry
 
 class MacrosApp:

@@ -1,3 +1,8 @@
+from datetime import datetime
+
+from numpy import append
+
+from apps.Workout.classes.Movement import Movement
 
 class Workout: 
     
@@ -60,31 +65,36 @@ class Workout:
     
     # Aggregates all the prompts into a single method call
     def create(self):
-        date = self.prompt('date')
-        duration = self.prompt('duration')
-        cals = self.prompt('total cals')
-        split = self.prompt('split')
-        total_vol = self.prompt('total volume')
-        ch_vol = self.prompt('chest volume')
-        bi_vol = self.prompt('bicep volume')
-        tri_vol = self.prompt('tricep volume')
-        shld_vol = self.prompt('shoulder volume')
-        bk_vol = self.prompt('back volume')
-        core_vol = self.prompt('core volume')
-        qd_vol = self.prompt('quad volume')
-        ham_vol = self.prompt('hamstring volume')
-        cf_vol = self.prompt('calf volume')
+        date = datetime.strptime(self.prompt('date like Jan 01 2022 18:30'), '%b %d %Y %H:%M')
+        duration = self.prompt('duration in MM:SS')
+        cals = self.prompt('total calories')
+        split = self.prompt('split (upper/lower)')
+        movements = self.capture_movements(self)
+        print(movements[0].volume)
+        
         return Workout(date,
                         duration,
                         cals,
-                        split,
-                        total_vol,
-                        ch_vol,
-                        bi_vol,
-                        tri_vol,
-                        shld_vol,
-                        bk_vol,
-                        core_vol,
-                        qd_vol,
-                        ham_vol,
-                        cf_vol)
+                        split)
+    
+    def capture_movements(self):
+        movements = []
+        count = int(input('How many movements did you do?: '))
+        i = 0
+        while i < count:
+            name = self.prompt('Movement name')
+            group = self.prompt('Muscle group')
+            sets = self.prompt('Sets')
+            reps = self.prompt('Reps')
+            weight = self.prompt('Total weight')
+            movements.append(
+                Movement(
+                    group,
+                    name,
+                    reps,
+                    sets,
+                    weight
+                )
+            )
+            i += 1
+        return movements

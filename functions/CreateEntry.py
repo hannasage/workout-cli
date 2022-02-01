@@ -1,5 +1,5 @@
 import pandas as pd
-from classes.Macros import Macros
+from apps.Macros.classes.Macros import Macros
 
 def create_entry(file_path, clazz):
     # Read in and display current log tail and dtypes

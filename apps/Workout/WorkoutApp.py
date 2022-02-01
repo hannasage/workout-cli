@@ -1,4 +1,4 @@
-from classes.Workout import Workout
+from apps.Workout.classes.Workout import Workout
 from functions.CreateEntry import create_entry
 
 class WorkoutApp:
