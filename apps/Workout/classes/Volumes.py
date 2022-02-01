@@ -42,7 +42,8 @@ class Volumes:
                 pass
     
     def builder():
-        movements = capture_movements()
+        count = int(input('How many movements did you do?: '))
+        movements = Movement.builder(count)
         return Volumes(movements)
     
     def calc_total_vol(self):
@@ -59,10 +60,3 @@ class Volumes:
                 self.calf_vol,
             ]
         )
-
-def prompt(field_name):
-    return input(f'{field_name}: ')
-
-def capture_movements():
-    count = int(input('How many movements did you do?: '))
-    return Movement.builder(count)

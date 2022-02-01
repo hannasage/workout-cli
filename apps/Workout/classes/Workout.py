@@ -11,10 +11,14 @@ class Workout:
                  duration: str, 
                  cals: float, 
                  split: str) -> None:
+
+        # Basic workout data
         self.date = date
         self.duration = duration
         self.cals = cals
         self.split = split
+
+        # Custom workout data
         self.volumes: Volumes = Volumes.builder()
 
     # Enumerate class callsign
@@ -22,6 +26,9 @@ class Workout:
         return 'workout'
 
     # Converts to an item that pandas will turn into a DataFrame
+    # TODO: This holds over for the volumes dataframe but eventually
+    #       I see this being handled by a Framer class; it takes a
+    #       Workout and creates DataFrame shapes for any dataframe!
     def to_dict(self):
         return {
             'date': [self.date],
@@ -53,7 +60,6 @@ class Workout:
             ),
         ]
         answers = inquirer.prompt(questions)
-        print(answers)
         date_conversion = datetime.strptime(answers['date'], '%b %d %Y %H:%M')
         return Workout(date_conversion,
                        answers['duration'],
