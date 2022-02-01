@@ -1,40 +1,21 @@
 from datetime import datetime
+import pandas as pd
+import inquirer
 
-from numpy import append
-
-from apps.Workout.classes.Movement import Movement
+from .Volumes import Volumes
 
 class Workout: 
     
     def __init__(self, 
-                date,
-                duration, 
-                cals, 
-                split, 
-                total_vol, 
-                ch_vol, 
-                bi_vol,
-                tri_vol, 
-                shld_vol,
-                bk_vol, 
-                core_vol, 
-                qd_vol, 
-                ham_vol, 
-                cf_vol) -> None:
+                 date: datetime,
+                 duration: str, 
+                 cals: float, 
+                 split: str) -> None:
         self.date = date
         self.duration = duration
         self.cals = cals
         self.split = split
-        self.total_vol = total_vol
-        self.ch_vol = ch_vol
-        self.bi_vol = bi_vol
-        self.tri_vol = tri_vol
-        self.shld_vol = shld_vol
-        self.bk_vol = bk_vol
-        self.core_vol = core_vol
-        self.qd_vol = qd_vol
-        self.ham_vol = ham_vol
-        self.cf_vol = cf_vol
+        self.volumes: Volumes = Volumes.builder()
 
     # Enumerate class callsign
     def callsign():
@@ -47,54 +28,35 @@ class Workout:
             'duration': [self.duration],
             'calse': [self.cals],
             'split': [self.split],
-            'total_vol': [self.total_vol],
-            'ch_vol': [self.ch_vol],
-            'bi_vol': [self.bi_vol],
-            'tri_vol': [self.tri_vol],
-            'shld_vol': [self.shld_vol],
-            'back_vol': [self.bk_vol],
-            'core_vol': [self.core_vol],
-            'quad_vol': [self.qd_vol],
-            'ham_vol': [self.ham_vol],
-            'cf_vol': [self.cf_vol]
+            'total_vol': [self.volumes.total_vol],
+            'ch_vol': [self.volumes.chest_vol],
+            'bi_vol': [self.volumes.bicep_vol],
+            'tri_vol': [self.volumes.tricep_vol],
+            'shld_vol': [self.volumes.shoulder_vol],
+            'back_vol': [self.volumes.back_vol],
+            'core_vol': [self.volumes.core_vol],
+            'quad_vol': [self.volumes.quad_vol],
+            'ham_vol': [self.volumes.hammy_vol],
+            'cf_vol': [self.volumes.calf_vol]
         }
     
-    # Prompts the user for the column name passed in
-    def prompt(column_header):
-        return input(f'Enter {column_header}: ')
-    
     # Aggregates all the prompts into a single method call
-    def create(self):
-        date = datetime.strptime(self.prompt('date like Jan 01 2022 18:30'), '%b %d %Y %H:%M')
-        duration = self.prompt('duration in MM:SS')
-        cals = self.prompt('total calories')
-        split = self.prompt('split (upper/lower)')
-        movements = self.capture_movements(self)
-        print(movements[0].volume)
-        
-        return Workout(date,
-                        duration,
-                        cals,
-                        split)
+    def builder():
+        questions = [
+            inquirer.Text('date', message="Today's Date (in Jan 01 2022 17:30 format): "),
+            inquirer.Text('duration', message="Workout duration (mm:ss): "),
+            inquirer.Text('cals', message="Active calories burned: "),
+            inquirer.List(
+                'split',
+                message='Choose a split: ',
+                choices=['upper', 'lower', 'full'],
+            ),
+        ]
+        answers = inquirer.prompt(questions)
+        print(answers)
+        date_conversion = datetime.strptime(answers['date'], '%b %d %Y %H:%M')
+        return Workout(date_conversion,
+                       answers['duration'],
+                       answers['cals'],
+                       answers['split'])
     
-    def capture_movements(self):
-        movements = []
-        count = int(input('How many movements did you do?: '))
-        i = 0
-        while i < count:
-            name = self.prompt('Movement name')
-            group = self.prompt('Muscle group')
-            sets = self.prompt('Sets')
-            reps = self.prompt('Reps')
-            weight = self.prompt('Total weight')
-            movements.append(
-                Movement(
-                    group,
-                    name,
-                    reps,
-                    sets,
-                    weight
-                )
-            )
-            i += 1
-        return movements
