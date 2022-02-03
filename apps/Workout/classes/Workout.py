@@ -37,20 +37,11 @@ class Workout:
     #       Workout and creates DataFrame shapes for any dataframe!
     def to_dict(self):
         return {
+            'id': [self.id],
             'date': [self.date],
             'duration': [self.duration],
             'calse': [self.cals],
-            'split': [self.split],
-            'total_vol': [self.volumes.total_vol],
-            'ch_vol': [self.volumes.chest_vol],
-            'bi_vol': [self.volumes.bicep_vol],
-            'tri_vol': [self.volumes.tricep_vol],
-            'shld_vol': [self.volumes.shoulder_vol],
-            'back_vol': [self.volumes.back_vol],
-            'core_vol': [self.volumes.core_vol],
-            'quad_vol': [self.volumes.quad_vol],
-            'ham_vol': [self.volumes.hammy_vol],
-            'cf_vol': [self.volumes.calf_vol]
+            'split': [self.split]
         }
     
     # Aggregates all the prompts into a single method call

@@ -63,15 +63,17 @@ class Movement:
 
     def to_dict(self):
         return {
+            'workout_id': [self.workout_id],
             'name': [self.name],
             'group': [self.group],
-            'sets': [self.sets],
-            'reps': [self.reps],
+            'sets': [self.sets[0]],
+            'reps': [self.reps[0]],
             'weight': [self.total_weight],
             'volume': [self.volume]
         }
 
 def to_dict_from_list(movements: list[Movement]):
+    workout_id = []
     name = []
     group = []
     sets = []
@@ -80,14 +82,16 @@ def to_dict_from_list(movements: list[Movement]):
     volume = []
     
     for mv in movements:
+        workout_id.append(mv.workout_id)
         name.append(mv.name)
         group.append(mv.group)
-        sets.append(mv.sets)
-        reps.append(mv.reps)
+        sets.append(mv.sets[0])
+        reps.append(mv.reps[0])
         weight.append(mv.total_weight)
         volume.append(mv.volume)
 
     return {
+        'workout_id': workout_id,
         'name': name,
         'group': group,
         'sets': sets,
@@ -100,6 +104,18 @@ def to_dict_from_list(movements: list[Movement]):
 
 # Returns the enumerated movement names for the selected muscle group
 def get_group(group_answer: str):
+    if group_answer == Volume_Enums.CHEST:
+        return Chest_Movements.get_all()
+    if group_answer == Volume_Enums.BICEP:
+        return Bicep_Movements.get_all()
+    if group_answer == Volume_Enums.TRICEP:
+        return Tricep_Movements.get_all()
+    if group_answer == Volume_Enums.SHOULDER:
+        return Shoulder_Movements.get_all()
+    if group_answer == Volume_Enums.BACK:
+        return Back_Movements.get_all()
+    if group_answer == Volume_Enums.CORE:
+        return Core_Movements.get_all()
     if group_answer == Volume_Enums.QUADS:
         return Quad_Movements.get_all()
     if group_answer == Volume_Enums.HAMSTRINGS:
