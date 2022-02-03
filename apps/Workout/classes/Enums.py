@@ -95,12 +95,14 @@ class Core_Movements:
 
 class Quad_Movements:
     SQUAT = 'squat'
+    LUNGE = 'lunges'
     LUNGE_WALK = 'walking lunges'
     STEP_UPS = 'step ups'
 
     def get_all():
         return [
             Quad_Movements.SQUAT,
+            Quad_Movements.LUNGE,
             Quad_Movements.LUNGE_WALK,
             Quad_Movements.STEP_UPS
         ] 
@@ -108,11 +110,13 @@ class Quad_Movements:
 class Ham_Movements:
     RDL = 'rdl'
     SL_RDL = 'single-leg rdl'
+    CB_PULL_THRU = 'cable pull through'
 
     def get_all():
         return [
             Ham_Movements.RDL,
-            Ham_Movements.SL_RDL
+            Ham_Movements.SL_RDL,
+            Ham_Movements.CB_PULL_THRU
         ] 
  
 class Calf_Movements:
