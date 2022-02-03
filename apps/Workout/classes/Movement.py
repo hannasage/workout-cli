@@ -1,3 +1,4 @@
+from uuid import UUID
 import inquirer
 
 from .Enums import *
@@ -5,11 +6,13 @@ from .Enums import *
 class Movement:
 
     def __init__(self,
+                workout_id,
                 name,
                 group,
                 sets,
                 reps,
                 total_weight) -> None:
+        self.workout_id = workout_id
         self.group = group
         self.name = name
         self.sets = int(sets),
@@ -18,7 +21,7 @@ class Movement:
         self.volume = int(reps) * int(sets) * float(total_weight)
 
     # CLI process to make a Movement
-    def make():
+    def make(workout_id: UUID):
         gr_question = [
             inquirer.List(
                 'group', 
@@ -39,6 +42,7 @@ class Movement:
         ]
         answers = inquirer.prompt(questions)
         return Movement(
+                workout_id,
                 answers['name'],
                 gr_answer['group'],
                 answers['sets'],
@@ -47,18 +51,55 @@ class Movement:
         )
 
     # Iterates to build a list of Movements
-    def builder(i: int):
+    def builder(i: int, workout_id: UUID):
         j = 0
         movements = []
         while j < i:
             print('\n')
-            movement = Movement.make()
+            movement = Movement.make(workout_id)
             movements.append(movement)
             j += 1
         return movements
 
+    def to_dict(self):
+        return {
+            'name': [self.name],
+            'group': [self.group],
+            'sets': [self.sets],
+            'reps': [self.reps],
+            'weight': [self.total_weight],
+            'volume': [self.volume]
+        }
+
+def to_dict_from_list(movements: list[Movement]):
+    name = []
+    group = []
+    sets = []
+    reps = []
+    weight = []
+    volume = []
+    
+    for mv in movements:
+        name.append(mv.name)
+        group.append(mv.group)
+        sets.append(mv.sets)
+        reps.append(mv.reps)
+        weight.append(mv.total_weight)
+        volume.append(mv.volume)
+
+    return {
+        'name': name,
+        'group': group,
+        'sets': sets,
+        'reps': reps,
+        'weight': weight,
+        'volume': volume
+    }
+
+
+
 # Returns the enumerated movement names for the selected muscle group
-def get_group(group_answer):
+def get_group(group_answer: str):
     if group_answer == Volume_Enums.QUADS:
         return Quad_Movements.get_all()
     if group_answer == Volume_Enums.HAMSTRINGS:

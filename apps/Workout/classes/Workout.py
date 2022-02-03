@@ -1,6 +1,9 @@
 from datetime import datetime
+from uuid import uuid4
 import pandas as pd
 import inquirer
+
+from apps.Workout.classes.Movement import Movement
 
 from .Volumes import Volumes
 
@@ -10,16 +13,19 @@ class Workout:
                  date: datetime,
                  duration: str, 
                  cals: float, 
-                 split: str) -> None:
+                 split: str,
+                 movement_count: int) -> None:
 
         # Basic workout data
+        self.id = uuid4()
         self.date = date
         self.duration = duration
         self.cals = cals
         self.split = split
 
         # Custom workout data
-        self.volumes: Volumes = Volumes.builder()
+        self.movements: list[Movement] = Movement.builder(movement_count, self.id)
+        self.volumes: Volumes = Volumes.builder(self.movements, self.id)
 
     # Enumerate class callsign
     def callsign():
@@ -48,7 +54,7 @@ class Workout:
         }
     
     # Aggregates all the prompts into a single method call
-    def builder():
+    def builder(movement_count: int):
         questions = [
             inquirer.Text('date', message="Today's Date (in Jan 01 2022 17:30 format): "),
             inquirer.Text('duration', message="Workout duration (mm:ss): "),
@@ -64,5 +70,6 @@ class Workout:
         return Workout(date_conversion,
                        answers['duration'],
                        answers['cals'],
-                       answers['split'])
+                       answers['split'],
+                       movement_count)
     
