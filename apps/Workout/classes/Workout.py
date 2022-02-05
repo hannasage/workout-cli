@@ -41,7 +41,7 @@ class Workout:
             'id': [self.id],
             'date': [self.date],
             'duration': [self.duration],
-            'calse': [self.cals],
+            'cals': [self.cals],
             'split': [self.split]
         }
     
