@@ -1,6 +1,5 @@
 
 from sqlite3 import Date
-from sqlite3 import DateFromTicks
 import pandas as pd
 
 from .Enums import *

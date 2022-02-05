@@ -1,4 +1,4 @@
-from apps.Nutrition.classes.Macros import Nutrition
+from apps.classes.Nutrition import Nutrition
 import pandas as pd
 
 class NutritionApp:

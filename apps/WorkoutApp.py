@@ -1,6 +1,6 @@
-from apps.Workout.classes.Enums import VolumeEnums
-from .classes.Movement import Movement, to_dict_from_list
+from .classes.Movement import to_dict_from_list
 from .classes.Workout import Workout
+
 import pandas as pd
 
 class WorkoutApp:

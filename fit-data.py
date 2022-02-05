@@ -1,8 +1,8 @@
 import click
-from apps.Nutrition.NutritionApp import NutritionApp
-from apps.Workout.WorkoutApp import *
-from apps.Nutrition.NutritionApp import *
-from apps.Workout.classes.Workout import Workout
+from apps.WorkoutApp import *
+from apps.NutritionApp import *
+from apps.classes.Workout import Workout
+from apps.classes.Nutrition import Nutrition
 
 macro_log = 'C:\Projects\workout-cli\data\macros-log.csv'
 workout_log = 'C:\Projects\workout-cli\data\workout-log.csv'
