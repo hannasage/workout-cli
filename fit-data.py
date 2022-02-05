@@ -1,14 +1,14 @@
 import click
+from apps.Nutrition.NutritionApp import NutritionApp
 from apps.Workout.WorkoutApp import *
-from apps.Macros.MacrosApp import *
-from apps.Macros.classes.Macros import Macros
+from apps.Nutrition.NutritionApp import *
 from apps.Workout.classes.Workout import Workout
 
 macro_log = 'C:\Projects\workout-cli\data\macros-log.csv'
 workout_log = 'C:\Projects\workout-cli\data\workout-log.csv'
 
 @click.command()
-@click.option('--app', default='workout', help='Create and save a workout log entry')
+@click.option('--app', default='nutrition', help='Applications include: workout, nutrition')
 def main(app):
     runner(app)
 
@@ -21,7 +21,7 @@ def runner(app_index):
     if app_index == Workout.callsign():
         WorkoutApp().create_entry()
     elif app_index == Macros.callsign():
-        MacrosApp().create_entry()
+        NutritionApp().create_entry()
     else:
         farewell()
 
