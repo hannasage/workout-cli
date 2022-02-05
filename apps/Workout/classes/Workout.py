@@ -1,4 +1,5 @@
 from datetime import datetime
+from sqlite3 import Date
 from uuid import uuid4
 import pandas as pd
 import inquirer
@@ -47,8 +48,8 @@ class Workout:
     # Aggregates all the prompts into a single method call
     def builder(movement_count: int):
         questions = [
-            inquirer.Text('date', message="Today's Date (in Jan 01 2022 17:30 format): "),
-            inquirer.Text('duration', message="Workout duration (mm:ss): "),
+            inquirer.Text('time', message="When did you workout? (HH:MM)"),
+            inquirer.Text('duration', message="How long did you workout? (MM:SS)"),
             inquirer.Text('cals', message="Active calories burned: "),
             inquirer.List(
                 'split',
@@ -57,7 +58,7 @@ class Workout:
             ),
         ]
         answers = inquirer.prompt(questions)
-        date_conversion = datetime.strptime(answers['date'], '%b %d %Y %H:%M')
+        date_conversion = datetime.strptime(f'{Date.today()} {answers["time"]}', '%b %d %Y %H:%M')
         return Workout(date_conversion,
                        answers['duration'],
                        answers['cals'],
