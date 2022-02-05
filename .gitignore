@@ -4,3 +4,4 @@ oops.py
 vscode
 .idea
 .pytest_cache
+.ipynb_checkpoints
