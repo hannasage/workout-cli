@@ -58,7 +58,7 @@ class Workout:
             ),
         ]
         answers = inquirer.prompt(questions)
-        date_conversion = datetime.strptime(f'{Date.today()} {answers["time"]}', '%b %d %Y %H:%M')
+        date_conversion = datetime.strptime(f'{Date.today()} {answers["time"]}', '%Y-%m-%d %H:%M')
         return Workout(date_conversion,
                        answers['duration'],
                        answers['cals'],
