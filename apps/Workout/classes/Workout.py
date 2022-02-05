@@ -3,9 +3,9 @@ from uuid import uuid4
 import pandas as pd
 import inquirer
 
-from apps.Workout.classes.Movement import Movement
-
+from .Movement import Movement
 from .Volumes import Volumes
+
 
 class Workout: 
     

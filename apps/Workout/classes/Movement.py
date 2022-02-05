@@ -3,6 +3,7 @@ import inquirer
 
 from .Enums import *
 
+
 class Movement:
 
     def __init__(self,
@@ -26,7 +27,7 @@ class Movement:
             inquirer.List(
                 'group', 
                 message="Muscle group",
-                choices=Volume_Enums.get_all()
+                choices=VolumeEnums.property_as_string_list(Helpers.VALUE)
             )
         ]
         gr_answer = inquirer.prompt(gr_question)
@@ -72,6 +73,7 @@ class Movement:
             'volume': [self.volume]
         }
 
+
 def to_dict_from_list(movements: list[Movement]):
     workout_id = []
     name = []
@@ -101,25 +103,24 @@ def to_dict_from_list(movements: list[Movement]):
     }
 
 
-
 # Returns the enumerated movement names for the selected muscle group
 def get_group(group_answer: str):
-    if group_answer == Volume_Enums.CHEST:
-        return Chest_Movements.get_all()
-    if group_answer == Volume_Enums.BICEP:
-        return Bicep_Movements.get_all()
-    if group_answer == Volume_Enums.TRICEP:
-        return Tricep_Movements.get_all()
-    if group_answer == Volume_Enums.SHOULDER:
-        return Shoulder_Movements.get_all()
-    if group_answer == Volume_Enums.BACK:
-        return Back_Movements.get_all()
-    if group_answer == Volume_Enums.CORE:
-        return Core_Movements.get_all()
-    if group_answer == Volume_Enums.QUADS:
-        return Quad_Movements.get_all()
-    if group_answer == Volume_Enums.HAMSTRINGS:
-        return Ham_Movements.get_all()
-    if group_answer == Volume_Enums.CALF:
-        return Calf_Movements.get_all()
+    if group_answer == VolumeEnums.CHEST.value:
+        return ChestMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.BICEP.value:
+        return BicepMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.TRICEP.value:
+        return TricepMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.SHOULDER.value:
+        return ShoulderMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.BACK.value:
+        return BackMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.CORE.value:
+        return CoreMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.QUADS.value:
+        return QuadMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.HAMSTRINGS.value:
+        return HamMovements.property_as_string_list(Helpers.VALUE)
+    if group_answer == VolumeEnums.CALF.value:
+        return CalfMovements.property_as_string_list(Helpers.VALUE)
 

@@ -1,6 +1,7 @@
 from uuid import UUID
 from .Movement import Movement
-from .Enums import Volume_Enums
+from .Enums import VolumeEnums
+
 
 class Volumes:
 
@@ -38,23 +39,23 @@ class Volumes:
         for mv in movements:
             # TODO: WHY ARE THESE TUPLES?
             volume = mv.sets[0] * mv.reps[0] * mv.total_weight
-            if mv.group == Volume_Enums.CHEST:
+            if mv.group == VolumeEnums.CHEST.value:
                 self.chest_vol += volume
-            elif mv.group == Volume_Enums.BICEP:
+            elif mv.group == VolumeEnums.BICEP.value:
                 self.bicep_vol += volume
-            elif mv.group == Volume_Enums.TRICEP:
+            elif mv.group == VolumeEnums.TRICEP.value:
                 self.tricep_vol += volume
-            elif mv.group == Volume_Enums.SHOULDER:
+            elif mv.group == VolumeEnums.SHOULDER.value:
                 self.shoulder_vol += volume
-            elif mv.group == Volume_Enums.BACK:
+            elif mv.group == VolumeEnums.BACK.value:
                 self.back_vol += volume
-            elif mv.group == Volume_Enums.CORE:
+            elif mv.group == VolumeEnums.CORE.value:
                 self.core_vol += volume
-            elif mv.group == Volume_Enums.QUADS:
+            elif mv.group == VolumeEnums.QUADS.value:
                 self.quad_vol += volume
-            elif mv.group == Volume_Enums.HAMSTRINGS:
+            elif mv.group == VolumeEnums.HAMSTRINGS.value:
                 self.hammy_vol += volume
-            elif mv.group == Volume_Enums.CALF:
+            elif mv.group == VolumeEnums.CALF.value:
                 self.calf_vol += volume
             else:
                 pass

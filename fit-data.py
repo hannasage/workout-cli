@@ -12,8 +12,10 @@ workout_log = 'C:\Projects\workout-cli\data\workout-log.csv'
 def main(app):
     runner(app)
 
+
 def farewell():
     print('Shutting down, goodnight!')
+
 
 def runner(app_index):
     if app_index == Workout.callsign():
@@ -22,6 +24,7 @@ def runner(app_index):
         MacrosApp().create_entry()
     else:
         farewell()
+
 
 if __name__ == '__main__':
     main()

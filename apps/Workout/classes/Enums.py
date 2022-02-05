@@ -1,5 +1,27 @@
+from enum import Enum
 
-class Volume_Enums:
+
+class Helpers(Enum):
+    KEY = 'key',
+    VALUE = 'value'
+
+
+class EnumWithHelpers(Enum):
+
+    @classmethod
+    def property_as_string_list(cls, desired_value):
+        properties_list = []
+        for item in cls:
+            if desired_value == Helpers.KEY:
+                properties_list.append(item.name)
+            elif desired_value == Helpers.VALUE:
+                properties_list.append(item.value)
+            else:
+                raise PropertyTypeError(desired_value)
+        return properties_list
+
+
+class VolumeEnums(EnumWithHelpers):
     CHEST = 'chest'
     BICEP = 'bicep'
     TRICEP = 'tricep'
@@ -10,127 +32,68 @@ class Volume_Enums:
     HAMSTRINGS = 'hamstrings'
     CALF = 'calf'
 
-    def get_all():
-        return [
-            Volume_Enums.CHEST,
-            Volume_Enums.BICEP,
-            Volume_Enums.TRICEP,
-            Volume_Enums.SHOULDER,
-            Volume_Enums.BACK,
-            Volume_Enums.CORE,
-            Volume_Enums.QUADS, 
-            Volume_Enums.HAMSTRINGS,
-            Volume_Enums.CALF
-        ]
 
-class Chest_Movements:
+class ChestMovements(EnumWithHelpers):
     DB_PRESS = 'db chest press'
     DB_FLY = 'db fly'
     DB_PRESS_INCL = 'incline db chest press'
 
-    def get_all():
-        return [
-            Chest_Movements.DB_FLY,
-            Chest_Movements.DB_PRESS,
-            Chest_Movements.DB_PRESS_INCL
-        ]
 
-class Bicep_Movements:
+class BicepMovements(EnumWithHelpers):
     CHIN_UP = 'chin up'
     DB_CURL = 'db curl'
     DB_HAMMER = 'db hammer curl'
     CB_HAMMER = 'cable hammer curl'
 
-    def get_all():
-        return [
-            Bicep_Movements.CHIN_UP,
-            Bicep_Movements.DB_CURL,
-            Bicep_Movements.DB_HAMMER,
-            Bicep_Movements.CB_HAMMER
-        ] 
 
-class Tricep_Movements:
+class TricepMovements(EnumWithHelpers):
     DB_TRI_PRESS = 'db tri press'
     DB_TRI_EXT = 'db tri extension'
     CB_TRI_PULL = 'cable tri pulldown'
 
-    def get_all():
-        return [
-            Tricep_Movements.DB_TRI_EXT,
-            Tricep_Movements.DB_TRI_PRESS,
-            Tricep_Movements.CB_TRI_PULL
-        ] 
 
-class Shoulder_Movements:
+class ShoulderMovements(EnumWithHelpers):
     DB_LAT_RAISE = 'db lateral raise'
     DB_DELT_RAISE = 'db delt raise'
     DB_FRONT_RAISE = 'db front raise'
     DB_SHLD_PRESS = 'db shoulder press'
     CB_FACE_PULL = 'cable face pull'
 
-    def get_all():
-        return [
-            Shoulder_Movements.DB_DELT_RAISE,
-            Shoulder_Movements.DB_FRONT_RAISE,
-            Shoulder_Movements.DB_SHLD_PRESS,
-            Shoulder_Movements.DB_LAT_RAISE,
-            Shoulder_Movements.CB_FACE_PULL
-        ] 
 
-class Back_Movements:
+class BackMovements(EnumWithHelpers):
     CB_LAT_PULL = 'cable lat pulldown'
     CB_ROW = 'cable row'
     DB_ROW = 'db row'
     PULL_UP = 'pull up'
 
-    def get_all():
-        return [
-            Back_Movements.CB_LAT_PULL,
-            Back_Movements.CB_ROW,
-            Back_Movements.DB_ROW,
-            Back_Movements.PULL_UP
-        ] 
 
-class Core_Movements:
+class CoreMovements(EnumWithHelpers):
     CRUNCH = 'crunches'
     CB_AXES = 'cable axes'
 
-    def get_all():
-        return [
-            Core_Movements.CRUNCH,
-            Core_Movements.CB_AXES
-        ]
 
-class Quad_Movements:
+class QuadMovements(EnumWithHelpers):
     SQUAT = 'squat'
     LUNGE = 'lunges'
     LUNGE_WALK = 'walking lunges'
     STEP_UPS = 'step ups'
 
-    def get_all():
-        return [
-            Quad_Movements.SQUAT,
-            Quad_Movements.LUNGE,
-            Quad_Movements.LUNGE_WALK,
-            Quad_Movements.STEP_UPS
-        ] 
 
-class Ham_Movements:
+class HamMovements(EnumWithHelpers):
     RDL = 'rdl'
     SL_RDL = 'single-leg rdl'
     CB_PULL_THRU = 'cable pull through'
 
-    def get_all():
-        return [
-            Ham_Movements.RDL,
-            Ham_Movements.SL_RDL,
-            Ham_Movements.CB_PULL_THRU
-        ] 
- 
-class Calf_Movements:
+
+class CalfMovements(EnumWithHelpers):
     CALF_RAISE = 'calf raises'
 
-    def get_all():
-        return [
-            Calf_Movements.CALF_RAISE
-        ] 
+
+# Custom error type because why not?
+class PropertyTypeError(Exception):
+
+    def __init__(
+            self,
+            given_property
+    ):
+        self.message = f'{given_property} is not of type \'key\' or \'value\''

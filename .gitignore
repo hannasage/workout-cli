@@ -1,3 +1,6 @@
 __pycache__/
 .vscode
 oops.py
+vscode
+.idea
+.pytest_cache
