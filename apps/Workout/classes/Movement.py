@@ -21,7 +21,9 @@ class Movement:
         self.total_weight = float(total_weight)
         self.volume = int(reps) * int(sets) * float(total_weight)
 
-    # CLI process to make a Movement
+    """
+        CLI for making a Movement
+    """
     def make(workout_id: UUID):
         gr_question = [
             inquirer.List(
@@ -51,7 +53,7 @@ class Movement:
                 answers['weight']
         )
 
-    # Iterates to build a list of Movements
+    """ Iterates to build a list of Movements """
     def builder(i: int, workout_id: UUID):
         j = 0
         movements = []
@@ -74,6 +76,10 @@ class Movement:
         }
 
 
+""" 
+    Creates a dictionary from a list of movements in a format usable
+    by pandas when creating a DataFrame
+"""
 def to_dict_from_list(movements: list[Movement]):
     workout_id = []
     name = []
@@ -103,7 +109,9 @@ def to_dict_from_list(movements: list[Movement]):
     }
 
 
-# Returns the enumerated movement names for the selected muscle group
+""" 
+    Returns the enumerated movement names for the selected muscle group 
+"""
 def get_group(group_answer: str):
     if group_answer == VolumeEnums.CHEST.value:
         return ChestMovements.property_as_string_list(Helpers.VALUE)

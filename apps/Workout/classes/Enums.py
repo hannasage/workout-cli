@@ -5,7 +5,10 @@ class Helpers(Enum):
     KEY = 'key',
     VALUE = 'value'
 
-
+"""
+    EnumWithHelpers serves as a parent object all enums can extend to receive
+    additional utility specific to this application.
+"""
 class EnumWithHelpers(Enum):
 
     @classmethod
