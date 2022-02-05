@@ -6,7 +6,7 @@ import pandas as pd
 from .Enums import *
 
 
-class Macros:
+class Nutrition:
 
     def __init__(
             self,
@@ -76,9 +76,9 @@ class Macros:
         sat_fats = self.prompt(NutritionEnums.SAT_FATS.value, Units.GRAM.value)
         unsat_fats = self.prompt(NutritionEnums.UNSAT_FATS.value, Units.GRAM.value)
         chol = self.prompt(NutritionEnums.CHOL.value, Units.MG.value)
-        sodium = self.prompt(NutritionEnums.UNSAT_FATS.value, Units.MG.value)
-        potassium = self.prompt(NutritionEnums.UNSAT_FATS.value, Units.MG.value)
-        return Macros(
+        sodium = self.prompt(NutritionEnums.SODIUM.value, Units.MG.value)
+        potassium = self.prompt(NutritionEnums.POTASSIUM.value, Units.MG.value)
+        return Nutrition(
             workout_id,
             cals,
             protein,

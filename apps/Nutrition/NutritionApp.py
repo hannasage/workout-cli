@@ -1,4 +1,4 @@
-from apps.Nutrition.classes.Macros import Macros
+from apps.Nutrition.classes.Macros import Nutrition
 import pandas as pd
 
 class NutritionApp:
@@ -16,10 +16,10 @@ class NutritionApp:
         workout_id = check_workout_relation(workout_log)
 
         # Collect new nutrition information
-        new_entry = Macros.create(workout_id)
+        new_entry = Nutrition.create(workout_id)
 
         # Convert Nutrition object into dataframe
-        entry_as_df = pd.DataFrame(Macros.to_dict(new_entry))
+        entry_as_df = pd.DataFrame(Nutrition.to_dict(new_entry))
         print(entry_as_df)
 
         # Add new entry to nutrition_log

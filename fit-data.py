@@ -20,7 +20,7 @@ def farewell():
 def runner(app_index):
     if app_index == Workout.callsign():
         WorkoutApp().create_entry()
-    elif app_index == Macros.callsign():
+    elif app_index == Nutrition.callsign():
         NutritionApp().create_entry()
     else:
         farewell()
