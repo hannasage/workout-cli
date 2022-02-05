@@ -1,9 +1,10 @@
+from apps.classes.App import App
 from .classes.Movement import to_dict_from_list
 from .classes.Workout import Workout
 
 import pandas as pd
 
-class WorkoutApp:
+class WorkoutApp(App):
 
     def __init__(self) -> None:
         self.workout_log_path = 'C:\Projects\workout-cli\data\workouts-log.csv'
@@ -55,4 +56,5 @@ class WorkoutApp:
             updated_volumes_log.to_csv(self.volumes_log_path)
         else:
             print('Data not saved, goodbye!')
+            self.quit()
         

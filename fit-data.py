@@ -23,6 +23,7 @@ def runner(app_index):
     elif app_index == Nutrition.callsign():
         NutritionApp().create_entry()
     elif app_index == 'all':
+        App().create_entry()
         WorkoutApp().create_entry()
         NutritionApp().create_entry()
     else:

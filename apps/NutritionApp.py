@@ -1,7 +1,8 @@
+from apps.classes.App import App
 from apps.classes.Nutrition import Nutrition
 import pandas as pd
 
-class NutritionApp:
+class NutritionApp(App):
 
     def __init__(self) -> None:
         self.nutrition_log_path = 'C:\Projects\workout-cli\data\\nutrition-log.csv'
@@ -34,8 +35,6 @@ class NutritionApp:
         else:
             self.quit()
 
-    def quit(self):
-        print('Exiting, goodbye!')
 
 def check_workout_relation(log: pd.DataFrame):
     print(log.tail())
