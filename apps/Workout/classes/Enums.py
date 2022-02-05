@@ -38,35 +38,43 @@ class Chest_Movements:
 class Bicep_Movements:
     CHIN_UP = 'chin up'
     DB_CURL = 'db curl'
+    DB_HAMMER = 'db hammer curl'
     CB_HAMMER = 'cable hammer curl'
 
     def get_all():
         return [
             Bicep_Movements.CHIN_UP,
             Bicep_Movements.DB_CURL,
+            Bicep_Movements.DB_HAMMER,
             Bicep_Movements.CB_HAMMER
         ] 
 
 class Tricep_Movements:
     DB_TRI_PRESS = 'db tri press'
+    DB_TRI_EXT = 'db tri extension'
     CB_TRI_PULL = 'cable tri pulldown'
 
     def get_all():
         return [
+            Tricep_Movements.DB_TRI_EXT,
             Tricep_Movements.DB_TRI_PRESS,
             Tricep_Movements.CB_TRI_PULL
         ] 
 
 class Shoulder_Movements:
+    DB_LAT_RAISE = 'db lateral raise'
     DB_DELT_RAISE = 'db delt raise'
     DB_FRONT_RAISE = 'db front raise'
     DB_SHLD_PRESS = 'db shoulder press'
+    CB_FACE_PULL = 'cable face pull'
 
     def get_all():
         return [
             Shoulder_Movements.DB_DELT_RAISE,
             Shoulder_Movements.DB_FRONT_RAISE,
-            Shoulder_Movements.DB_SHLD_PRESS
+            Shoulder_Movements.DB_SHLD_PRESS,
+            Shoulder_Movements.DB_LAT_RAISE,
+            Shoulder_Movements.CB_FACE_PULL
         ] 
 
 class Back_Movements:
