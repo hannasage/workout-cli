@@ -52,6 +52,7 @@ class VolumeEnums(EnumWithHelpers):
     CALF = 'calf'
 
 class ChestMovements(EnumWithHelpers):
+    CB_FLY = 'cable fly'
     DB_PRESS = 'db chest press'
     DB_FLY = 'db fly'
     DB_PRESS_INCL = 'incline db chest press'
@@ -77,6 +78,7 @@ class ShoulderMovements(EnumWithHelpers):
 class BackMovements(EnumWithHelpers):
     CB_LAT_PULL = 'cable lat pulldown'
     CB_ROW = 'cable row'
+    DB_SHRUGS = 'db shrugs'
     DB_ROW = 'db row'
     PULL_UP = 'pull up'
 
