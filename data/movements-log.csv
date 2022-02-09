@@ -48,3 +48,9 @@
 46,9f953456-f079-431c-92d1-ca4e41b7d3ef,db chest press,chest,3,10,80.0,2400.0
 47,9f953456-f079-431c-92d1-ca4e41b7d3ef,cable fly,chest,1,10,35.0,350.0
 48,9f953456-f079-431c-92d1-ca4e41b7d3ef,cable fly,chest,2,8,25.0,400.0
+49,f786e612-ee67-4c26-af8c-2cdc249c1774,db curl,bicep,5,8,50.0,2000.0
+50,f786e612-ee67-4c26-af8c-2cdc249c1774,db hammer curl,bicep,4,8,50.0,1600.0
+51,f786e612-ee67-4c26-af8c-2cdc249c1774,db incline curl,bicep,4,8,30.0,960.0
+52,f786e612-ee67-4c26-af8c-2cdc249c1774,db incline hammer curl,bicep,4,10,30.0,1200.0
+53,f786e612-ee67-4c26-af8c-2cdc249c1774,db tri kickback,tricep,4,10,30.0,1200.0
+54,f786e612-ee67-4c26-af8c-2cdc249c1774,cable tri pulldown,tricep,5,10,27.5,1375.0

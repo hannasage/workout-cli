@@ -61,10 +61,13 @@ class BicepMovements(EnumWithHelpers):
     CHIN_UP = 'chin up'
     DB_CURL = 'db curl'
     DB_HAMMER = 'db hammer curl'
+    DB_INCL_CURL = 'db incline curl'
+    DB_INCL_HAMMER = 'db incline hammer curl'
     CB_HAMMER = 'cable hammer curl'
 
 class TricepMovements(EnumWithHelpers):
     DB_TRI_PRESS = 'db tri press'
+    DB_TRI_KICKBACK = 'db tri kickback'
     DB_TRI_EXT = 'db tri extension'
     CB_TRI_PULL = 'cable tri pulldown'
 
