@@ -54,3 +54,22 @@
 52,f786e612-ee67-4c26-af8c-2cdc249c1774,db incline hammer curl,bicep,4,10,30.0,1200.0
 53,f786e612-ee67-4c26-af8c-2cdc249c1774,db tri kickback,tricep,4,10,30.0,1200.0
 54,f786e612-ee67-4c26-af8c-2cdc249c1774,cable tri pulldown,tricep,5,10,27.5,1375.0
+55,fa719bd4-5089-42dd-84cc-00a88e978bd5,db chest press,chest,5,10,80.0,4000.0
+56,fa719bd4-5089-42dd-84cc-00a88e978bd5,db row,back,5,10,80.0,4000.0
+57,fa719bd4-5089-42dd-84cc-00a88e978bd5,cable lat pulldown,back,5,12,65.0,3900.0
+58,fa719bd4-5089-42dd-84cc-00a88e978bd5,db shrugs,back,4,12,80.0,3840.0
+59,fa719bd4-5089-42dd-84cc-00a88e978bd5,db upright row,back,5,12,50.0,3000.0
+60,064ad257-5c4e-4fe2-a07a-a05722dedb8e,cable pull through,hamstrings,5,12,27.5,1650.0
+61,064ad257-5c4e-4fe2-a07a-a05722dedb8e,hip thrust,hamstrings,5,12,30.0,1800.0
+62,064ad257-5c4e-4fe2-a07a-a05722dedb8e,squat,quads,5,10,70.0,3500.0
+63,064ad257-5c4e-4fe2-a07a-a05722dedb8e,rdl,hamstrings,5,10,70.0,3500.0
+64,064ad257-5c4e-4fe2-a07a-a05722dedb8e,lunges,quads,5,6,60.0,1800.0
+65,064ad257-5c4e-4fe2-a07a-a05722dedb8e,calf raises,calf,5,12,70.0,4200.0
+66,824d4eea-646e-48fe-bf16-8509041a77c0,db front raise,shoulder,5,10,30.0,1500.0
+67,824d4eea-646e-48fe-bf16-8509041a77c0,cable tri pulldown,tricep,3,10,37.5,1125.0
+68,824d4eea-646e-48fe-bf16-8509041a77c0,cable tri pulldown,tricep,2,8,37.5,600.0
+69,824d4eea-646e-48fe-bf16-8509041a77c0,db incline curl,bicep,2,10,40.0,800.0
+70,824d4eea-646e-48fe-bf16-8509041a77c0,db incline curl,bicep,3,8,40.0,960.0
+71,824d4eea-646e-48fe-bf16-8509041a77c0,cable lateral raise,shoulder,5,8,18.0,720.0
+72,824d4eea-646e-48fe-bf16-8509041a77c0,db floor press,tricep,5,12,60.0,3600.0
+73,824d4eea-646e-48fe-bf16-8509041a77c0,db hammer curl,bicep,5,10,50.0,2500.0

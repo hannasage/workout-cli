@@ -67,6 +67,7 @@ class BicepMovements(EnumWithHelpers):
 
 class TricepMovements(EnumWithHelpers):
     DB_TRI_PRESS = 'db tri press'
+    DB_FLOOR_PRESS = 'db floor press'
     DB_TRI_KICKBACK = 'db tri kickback'
     DB_TRI_EXT = 'db tri extension'
     CB_TRI_PULL = 'cable tri pulldown'
@@ -77,12 +78,14 @@ class ShoulderMovements(EnumWithHelpers):
     DB_FRONT_RAISE = 'db front raise'
     DB_SHLD_PRESS = 'db shoulder press'
     CB_FACE_PULL = 'cable face pull'
+    CB_LAT_RAISE = 'cable lateral raise'
 
 class BackMovements(EnumWithHelpers):
     CB_LAT_PULL = 'cable lat pulldown'
     CB_ROW = 'cable row'
     DB_SHRUGS = 'db shrugs'
     DB_ROW = 'db row'
+    DB_UP_ROW = 'db upright row'
     PULL_UP = 'pull up'
 
 class CoreMovements(EnumWithHelpers):
@@ -99,6 +102,7 @@ class HamMovements(EnumWithHelpers):
     RDL = 'rdl'
     SL_RDL = 'single-leg rdl'
     CB_PULL_THRU = 'cable pull through'
+    HIP_THRUST = 'hip thrust'
 
 class CalfMovements(EnumWithHelpers):
     CALF_RAISE = 'calf raises'
