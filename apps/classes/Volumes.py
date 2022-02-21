@@ -61,7 +61,8 @@ class Volumes:
                 pass
             # Add to total
             self.total_vol += volume
-    
-    def builder(self, movements: list[Movement], workout_id: UUID):
+
+    @classmethod
+    def builder(cls, movements: list[Movement], workout_id: UUID):
         return Volumes(movements, workout_id)
 

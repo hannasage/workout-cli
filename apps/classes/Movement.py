@@ -24,8 +24,8 @@ class Movement:
     """
         CLI for making a Movement
     """
-
-    def make(workout_id: UUID):
+    @classmethod
+    def make(cls, workout_id: UUID):
         gr_question = [
             inquirer.List(
                 'group',
@@ -56,7 +56,8 @@ class Movement:
 
     """ Iterates to build a list of Movements """
 
-    def builder(i: int, workout_id: UUID):
+    @classmethod
+    def builder(cls, i: int, workout_id: UUID):
         j = 0
         movements = []
         while j < i:

@@ -1,4 +1,4 @@
-from apps.classes.App import App
+from apps.classes.abstract.App import App
 from classes.Movement import to_dict_from_list
 from classes.Workout import Workout
 

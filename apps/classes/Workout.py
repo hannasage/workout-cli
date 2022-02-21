@@ -7,7 +7,7 @@ from Movement import Movement
 from Volumes import Volumes
 
 
-class Workout: 
+class Workout:
     
     def __init__(
         self,
@@ -30,9 +30,6 @@ class Workout:
         self.volumes: Volumes = Volumes.builder(self.movements, self.id)
 
     # Converts to an item that pandas will turn into a DataFrame
-    # TODO: This holds over for the volumes dataframe but eventually
-    #       I see this being handled by a Framer class; it takes a
-    #       Workout and creates DataFrame shapes for any dataframe!
     def to_dict(self):
         return {
             'id': [self.id],
@@ -43,7 +40,8 @@ class Workout:
         }
     
     # Aggregates all the prompts into a single method call
-    def builder(self, movement_count: int):
+    @classmethod
+    def builder(cls, movement_count: int):
         questions = [
             inquirer.Text('time', message="When did you workout? (HH:MM)"),
             inquirer.Text('duration', message="How long did you workout? (MM:SS)"),

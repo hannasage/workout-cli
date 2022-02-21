@@ -1,7 +1,6 @@
 from sqlite3 import Date
-import pandas as pd
 
-from .Enums import *
+from Enums import *
 
 
 class Nutrition:
@@ -54,24 +53,20 @@ class Nutrition:
             'potassium': [self.potassium]
         }
 
-    # Prompts the user for the column name passed in
-    def prompt(column_header, measure):
-        return input(f'Enter {column_header} ({measure}): ')
-
     # Aggregates all the prompts into a single method call
     @classmethod
-    def create(self, workout_id=None):
-        cals = self.prompt(NutritionEnums.CALS.value, Units.KCAL.value)
-        protein = self.prompt(NutritionEnums.PROTEIN.value, Units.GRAM.value)
-        carbs = self.prompt(NutritionEnums.CARBS.value, Units.GRAM.value)
-        fiber = self.prompt(NutritionEnums.FIBER.value, Units.GRAM.value)
-        sugars = self.prompt(NutritionEnums.SUGARS.value, Units.GRAM.value)
-        fats = self.prompt(NutritionEnums.FATS.value, Units.GRAM.value)
-        sat_fats = self.prompt(NutritionEnums.SAT_FATS.value, Units.GRAM.value)
-        unsat_fats = self.prompt(NutritionEnums.UNSAT_FATS.value, Units.GRAM.value)
-        chol = self.prompt(NutritionEnums.CHOL.value, Units.MG.value)
-        sodium = self.prompt(NutritionEnums.SODIUM.value, Units.MG.value)
-        potassium = self.prompt(NutritionEnums.POTASSIUM.value, Units.MG.value)
+    def builder(cls, workout_id=None):
+        cals = prompt(NutritionEnums.CALS.value, Units.KCAL.value)
+        protein = prompt(NutritionEnums.PROTEIN.value, Units.GRAM.value)
+        carbs = prompt(NutritionEnums.CARBS.value, Units.GRAM.value)
+        fiber = prompt(NutritionEnums.FIBER.value, Units.GRAM.value)
+        sugars = prompt(NutritionEnums.SUGARS.value, Units.GRAM.value)
+        fats = prompt(NutritionEnums.FATS.value, Units.GRAM.value)
+        sat_fats = prompt(NutritionEnums.SAT_FATS.value, Units.GRAM.value)
+        unsat_fats = prompt(NutritionEnums.UNSAT_FATS.value, Units.GRAM.value)
+        chol = prompt(NutritionEnums.CHOL.value, Units.MG.value)
+        sodium = prompt(NutritionEnums.SODIUM.value, Units.MG.value)
+        potassium = prompt(NutritionEnums.POTASSIUM.value, Units.MG.value)
         return Nutrition(
             workout_id,
             cals,
@@ -86,3 +81,8 @@ class Nutrition:
             sodium,
             potassium
         )
+
+
+# Prompts the user for the column name passed in
+def prompt(column_header, measure):
+    return input(f'Enter {column_header} ({measure}): ')

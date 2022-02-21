@@ -1,4 +1,4 @@
-from apps.classes.App import App
+from apps.classes.abstract.App import App
 from apps.classes.Nutrition import Nutrition
 import pandas as pd
 
@@ -22,7 +22,7 @@ class NutritionApp(App):
         workout_id = check_workout_relation(workout_log)
 
         # Collect new nutrition information
-        new_entry = Nutrition.create(workout_id)
+        new_entry = Nutrition.builder(workout_id)
 
         # Convert Nutrition object into dataframe
         entry_as_df = pd.DataFrame(Nutrition.to_dict(new_entry))
