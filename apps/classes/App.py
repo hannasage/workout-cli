@@ -1,5 +1,4 @@
 
-
 class App:
 
     @classmethod

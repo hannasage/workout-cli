@@ -1,4 +1,3 @@
-
 from sqlite3 import Date
 import pandas as pd
 
@@ -21,24 +20,24 @@ class Nutrition:
             chol,
             sodium,
             potassium
-        ) -> None:
-            self.workout_id = workout_id
-            self.date = Date.today()
-            self.cals = cals
-            self.protein = protein
-            self.carbs = carbs
-            self.fiber = fiber
-            self.sugars = sugars
-            self.fats = fats
-            self.sat_fats = sat_fats
-            self.unsat_fats = unsat_fats
-            # Convert from mg -> g
-            self.chol = int(chol) / 1000
-            self.sodium = int(sodium) / 1000
-            self.potassium = int(potassium) / 1000
+    ) -> None:
+        self.workout_id = workout_id
+        self.date = Date.today()
+        self.cals = cals
+        self.protein = protein
+        self.carbs = carbs
+        self.fiber = fiber
+        self.sugars = sugars
+        self.fats = fats
+        self.sat_fats = sat_fats
+        self.unsat_fats = unsat_fats
+        # Convert from mg -> g
+        self.chol = int(chol) / 1000
+        self.sodium = int(sodium) / 1000
+        self.potassium = int(potassium) / 1000
 
     # Enumerate class callsign
-    def callsign():
+    def callsign(self):
         return 'nutrition'
 
     # Converts to an item that pandas will turn into a DataFrame
@@ -58,11 +57,11 @@ class Nutrition:
             'sodium': [self.sodium],
             'potassium': [self.potassium]
         }
-    
+
     # Prompts the user for the column name passed in
     def prompt(column_header, measure):
         return input(f'Enter {column_header} ({measure}): ')
-    
+
     # Aggregates all the prompts into a single method call
     @classmethod
     def create(self, workout_id=None):
@@ -91,4 +90,3 @@ class Nutrition:
             sodium,
             potassium
         )
-

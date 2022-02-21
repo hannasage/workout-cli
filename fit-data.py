@@ -4,8 +4,9 @@ from apps.NutritionApp import *
 from apps.classes.Workout import Workout
 from apps.classes.Nutrition import Nutrition
 
-macro_log = 'C:\Projects\workout-cli\data\macros-log.csv'
-workout_log = 'C:\Projects\workout-cli\data\workout-log.csv'
+macro_log = 'C:/Projects/workout-cli/data/macros-log.csv'
+workout_log = 'C:/Projects/workout-cli/data/workout-log.csv'
+
 
 @click.command()
 @click.option('--app', default='all', help='Applications include: workout, nutrition')

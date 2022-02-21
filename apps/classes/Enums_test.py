@@ -12,7 +12,7 @@ class TestEnumHelpers:
 
     """ Ensuring all returned Enum values are present """
     def test_all_enums_return_lists(self):
-        enums: list[EnumWithHelpers] = [
+        enums = [
             VolumeEnums, 
             ChestMovements, 
             BicepMovements, 

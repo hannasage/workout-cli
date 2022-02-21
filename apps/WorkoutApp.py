@@ -1,16 +1,17 @@
 from apps.classes.App import App
-from .classes.Movement import to_dict_from_list
-from .classes.Workout import Workout
+from classes.Movement import to_dict_from_list
+from classes.Workout import Workout
 
 import pandas as pd
+
 
 class WorkoutApp(App):
 
     def __init__(self) -> None:
-        self.workout_log_path = 'C:\Projects\workout-cli\data\workouts-log.csv'
-        self.movements_log_path = 'C:\Projects\workout-cli\data\movements-log.csv'
-        self.volumes_log_path = 'C:\Projects\workout-cli\data\\volumes-log.csv'
-    
+        self.workout_log_path = 'C:/Projects/workout-cli/data/workouts-log.csv'
+        self.movements_log_path = 'C:/Projects/workout-cli/data/movements-log.csv'
+        self.volumes_log_path = 'C:/Projects/workout-cli/data//volumes-log.csv'
+
     def create_entry(self):
         # Read in and display current log tail and dtypes
         workouts_log = pd.read_csv(self.workout_log_path, index_col=0)
@@ -57,4 +58,3 @@ class WorkoutApp(App):
         else:
             print('Data not saved, goodbye!')
             self.quit()
-        

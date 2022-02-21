@@ -1,18 +1,18 @@
 from uuid import UUID
 import inquirer
 
-from .Enums import *
+from Enums import *
 
 
 class Movement:
 
     def __init__(self,
-                workout_id,
-                name,
-                group,
-                sets,
-                reps,
-                total_weight) -> None:
+                 workout_id,
+                 name,
+                 group,
+                 sets,
+                 reps,
+                 total_weight) -> None:
         self.workout_id = workout_id
         self.group = group
         self.name = name
@@ -24,10 +24,11 @@ class Movement:
     """
         CLI for making a Movement
     """
+
     def make(workout_id: UUID):
         gr_question = [
             inquirer.List(
-                'group', 
+                'group',
                 message="Muscle group",
                 choices=VolumeEnums.property_as_string_list(Helpers.VALUE)
             )
@@ -35,25 +36,26 @@ class Movement:
         gr_answer = inquirer.prompt(gr_question)
         questions = [
             inquirer.List(
-                'name', 
+                'name',
                 message="Movement name",
                 choices=get_group(gr_answer['group'])),
             inquirer.Text('sets', message="Sets"),
             inquirer.Text('reps', message="Reps"),
             inquirer.Text('weight', message="Weight"),
-            
+
         ]
         answers = inquirer.prompt(questions)
         return Movement(
-                workout_id,
-                answers['name'],
-                gr_answer['group'],
-                answers['sets'],
-                answers['reps'],
-                answers['weight']
+            workout_id,
+            answers['name'],
+            gr_answer['group'],
+            answers['sets'],
+            answers['reps'],
+            answers['weight']
         )
 
     """ Iterates to build a list of Movements """
+
     def builder(i: int, workout_id: UUID):
         j = 0
         movements = []
@@ -80,6 +82,8 @@ class Movement:
     Creates a dictionary from a list of movements in a format usable
     by pandas when creating a DataFrame
 """
+
+
 def to_dict_from_list(movements: list[Movement]):
     workout_id = []
     name = []
@@ -88,7 +92,7 @@ def to_dict_from_list(movements: list[Movement]):
     reps = []
     weight = []
     volume = []
-    
+
     for mv in movements:
         workout_id.append(mv.workout_id)
         name.append(mv.name)
@@ -112,6 +116,8 @@ def to_dict_from_list(movements: list[Movement]):
 """ 
     Returns the enumerated movement names for the selected muscle group 
 """
+
+
 def get_group(group_answer: str):
     if group_answer == VolumeEnums.CHEST.value:
         return ChestMovements.property_as_string_list(Helpers.VALUE)
@@ -131,4 +137,3 @@ def get_group(group_answer: str):
         return HamMovements.property_as_string_list(Helpers.VALUE)
     if group_answer == VolumeEnums.CALF.value:
         return CalfMovements.property_as_string_list(Helpers.VALUE)
-

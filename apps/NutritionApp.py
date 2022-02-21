@@ -2,11 +2,12 @@ from apps.classes.App import App
 from apps.classes.Nutrition import Nutrition
 import pandas as pd
 
+
 class NutritionApp(App):
 
     def __init__(self) -> None:
-        self.nutrition_log_path = 'C:\Projects\workout-cli\data\\nutrition-log.csv'
-        self.workout_log_path = 'C:\Projects\workout-cli\data\workouts-log.csv'
+        self.nutrition_log_path = 'C:/Projects/workout-cli/data/nutrition-log.csv'
+        self.workout_log_path = 'C:/Projects/workout-cli/data/workouts-log.csv'
 
     def create_entry(self):
         # Read in and display current log tail and dtypes
@@ -38,11 +39,10 @@ class NutritionApp(App):
 
 def check_workout_relation(log: pd.DataFrame):
     print(log.tail())
-    workout_index = None
     try:
         workout_index = int(input('Which workout (by index) should we link it to? (RETURN to cont.): '))
         return log.iloc[workout_index].id
-    except:
+    except IndexError:
         relation = input('Is this related to a workout? [y/n]: ')
         if relation.lower() == 'y':
             check_workout_relation(log)
@@ -50,4 +50,3 @@ def check_workout_relation(log: pd.DataFrame):
             pass
 
     return None
-        

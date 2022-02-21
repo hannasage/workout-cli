@@ -1,21 +1,22 @@
 from datetime import datetime
 from sqlite3 import Date
 from uuid import uuid4
-import pandas as pd
 import inquirer
 
-from .Movement import Movement
-from .Volumes import Volumes
+from Movement import Movement
+from Volumes import Volumes
 
 
 class Workout: 
     
-    def __init__(self, 
-                 date: datetime,
-                 duration: str, 
-                 cals: float, 
-                 split: str,
-                 movement_count: int) -> None:
+    def __init__(
+        self,
+        date: datetime,
+        duration: str,
+        cals: float,
+        split: str,
+        movement_count: int
+    ) -> None:
 
         # Basic workout data
         self.id = uuid4()
@@ -29,7 +30,7 @@ class Workout:
         self.volumes: Volumes = Volumes.builder(self.movements, self.id)
 
     # Enumerate class callsign
-    def callsign():
+    def callsign(self):
         return 'workout'
 
     # Converts to an item that pandas will turn into a DataFrame
@@ -46,7 +47,7 @@ class Workout:
         }
     
     # Aggregates all the prompts into a single method call
-    def builder(movement_count: int):
+    def builder(self, movement_count: int):
         questions = [
             inquirer.Text('time', message="When did you workout? (HH:MM)"),
             inquirer.Text('duration', message="How long did you workout? (MM:SS)"),

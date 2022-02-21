@@ -1,6 +1,6 @@
 from uuid import UUID
-from .Movement import Movement
-from .Enums import VolumeEnums
+from Movement import Movement
+from Enums import VolumeEnums
 
 
 class Volumes:
@@ -62,6 +62,6 @@ class Volumes:
             # Add to total
             self.total_vol += volume
     
-    def builder(movements: list[Movement], workout_id: UUID):
+    def builder(self, movements: list[Movement], workout_id: UUID):
         return Volumes(movements, workout_id)
 
