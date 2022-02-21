@@ -29,10 +29,6 @@ class Workout:
         self.movements: list[Movement] = Movement.builder(movement_count, self.id)
         self.volumes: Volumes = Volumes.builder(self.movements, self.id)
 
-    # Enumerate class callsign
-    def callsign(self):
-        return 'workout'
-
     # Converts to an item that pandas will turn into a DataFrame
     # TODO: This holds over for the volumes dataframe but eventually
     #       I see this being handled by a Framer class; it takes a

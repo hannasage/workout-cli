@@ -36,10 +36,6 @@ class Nutrition:
         self.sodium = int(sodium) / 1000
         self.potassium = int(potassium) / 1000
 
-    # Enumerate class callsign
-    def callsign(self):
-        return 'nutrition'
-
     # Converts to an item that pandas will turn into a DataFrame
     def to_dict(self):
         return {

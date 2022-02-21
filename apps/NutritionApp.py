@@ -9,6 +9,10 @@ class NutritionApp(App):
         self.nutrition_log_path = 'C:/Projects/workout-cli/data/nutrition-log.csv'
         self.workout_log_path = 'C:/Projects/workout-cli/data/workouts-log.csv'
 
+    @classmethod
+    def callsign(cls):
+        return 'nutrition'
+
     def create_entry(self):
         # Read in and display current log tail and dtypes
         log = pd.read_csv(self.nutrition_log_path, index_col=0)

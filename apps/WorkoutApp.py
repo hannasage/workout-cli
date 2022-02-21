@@ -12,6 +12,10 @@ class WorkoutApp(App):
         self.movements_log_path = 'C:/Projects/workout-cli/data/movements-log.csv'
         self.volumes_log_path = 'C:/Projects/workout-cli/data//volumes-log.csv'
 
+    @classmethod
+    def callsign(cls):
+        return 'workout'
+
     def create_entry(self):
         # Read in and display current log tail and dtypes
         workouts_log = pd.read_csv(self.workout_log_path, index_col=0)
